@@ -1,20 +1,17 @@
-import {  v4 } from 'uuid';
+
 import {  Request, Response, Router } from 'express';
 import { User } from '../../../entities/User';
-import { UserDatabase } from '../../../database/UserDatabase';
+import userDatabase from './SignupRouter';
+import userDb from '../../../database/UserDatabase';
 const signin = Router();
-const id  = v4();
-
+const userId = userDb.get(id);
+const pass = userDb.get(password)
 signin.post('/signin', (req: Request, res: Response) => {
     try {
-        const user : User = {   
-            id,   
-            email: req.body.email,  
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            password: req.body.password
+             this.pass = password;
+           if (!user) {
+
            }
-           userDatabase.save(user);
             return res.status(200).send(user);
     } catch (error) {
         return res.sendStatus(400);
